@@ -50,7 +50,7 @@ always@(posedge clk or negedge rst_n) begin
         stack_point <= stack_point;
     end
 end
-always @(posedge clk or posedge rst_n) begin
+always @(posedge clk or negedge rst_n) begin
     if (!rst) begin
         stack[0] <= 0;
         stack[1] <= 0;
@@ -102,7 +102,7 @@ always@(*) begin
     endcase
 end
 //set pc_final,should put it at the end of module
-always @(posedge clk or posedge rst_n) begin
+always @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
         // reset
         pc_final <= 16'b0;
